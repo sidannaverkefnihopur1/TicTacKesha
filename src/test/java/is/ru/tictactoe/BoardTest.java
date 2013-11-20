@@ -1,0 +1,34 @@
+package is.ru.tictactoe;
+
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import org.junit.Test;
+
+public class BoardTest {
+      public static Board br = new Board();
+      public char[][] testArr = new char[3][3];
+
+      @Test
+      public void testisFieldEmptyTrue() {
+            testArr[0][0] = br.BLANK;
+            Board b = new Board(testArr);
+            int[] statement = new int[2];
+            statement[0] = 0;
+            statement[1] = 0;
+
+            assertTrue("testsFieldEmptyTrue atti ad vera true", br.isFieldEmpty(statement));
+      }
+
+      @Test
+      public void testisFieldEmptyFalse() {
+            testArr[0][0] = br.CIRCLE; // grid number a1
+            Board b = new Board(testArr);
+            int[] statement = new int[2];
+            statement[0] = 0;
+            statement[1] = 0;
+
+            assertFalse("testsFieldEmptyFalse atti ad vera false", br.isFieldEmpty(statement));
+        }
+}
+
