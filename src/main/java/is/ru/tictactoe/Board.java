@@ -28,6 +28,16 @@ public Board() {
                         }
                 }
         }
+
+	public boolean isBoardFull() {
+                for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                                if (grid[i][j] == BLANK) return false;
+                        }
+                }
+                return true;
+        }
+
 	
 	public boolean isFieldEmpty(int[] theField) {
                 if (grid[theField[0]][theField[1]] == BLANK) return true;
