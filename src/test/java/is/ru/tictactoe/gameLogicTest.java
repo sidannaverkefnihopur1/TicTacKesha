@@ -4,9 +4,9 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
-public class gameLogicTest {
+public class GameLogicTest {
 
-	public static gameLogic gl = new gameLogic();
+	public static GameLogic gl = new GameLogic();
 	
 	@Test
 	public void testLegalStatement() {
