@@ -30,5 +30,28 @@ public class BoardTest {
 
             assertFalse("testsFieldEmptyFalse atti ad vera false", br.isFieldEmpty(statement));
         }
+
+      @Test
+      public void isBoardFullTest1() {
+          for (int i = 0; i < 3; i++) {
+              for(int j = 0; j < 3; j++) {
+                      testArr[i][j] = 'X';
+              }
+          }
+          Board b = new Board(testArr);
+          assertTrue("If board is full(True)", b.isBoardFull());
+      }
+
+      @Test
+      public void isBoardFullTest2() {
+          for (int i = 0; i < 3; i++) {
+              for(int j = 0; j < 3; j++) {
+                      testArr[i][j] = '-';
+              }
+          }
+          Board b = new Board(testArr);
+          assertFalse("If board is not full(False)", b.isBoardFull());
+      }
+
 }
 
