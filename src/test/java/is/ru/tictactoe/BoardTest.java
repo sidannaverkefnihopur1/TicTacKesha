@@ -10,6 +10,17 @@ public class BoardTest {
       public char[][] testArr = new char[3][3];
 
       @Test
+      public void testcreateEmptyBoard() {
+
+          for (int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+              
+              assertTrue("Board tile["+i+"]["+j+"] a ad vera jafnt og BLANK", testArr[i][j] == BLANK;);
+            }
+          }
+      }s
+
+      @Test
       public void testisFieldEmptyTrue() {
             testArr[0][0] = br.BLANK;
             Board b = new Board(testArr);
