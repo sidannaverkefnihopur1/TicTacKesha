@@ -38,6 +38,14 @@ public class Board {
                 return true;
         }
 
+        public void putOnField(int[] theMove, char player) {
+                if (!isFieldEmpty(theMove)) {
+                        System.out.println("This field is occupied!");
+                }
+                else {
+                        grid[theMove[0]][theMove[1]] = player;
+                }
+        }
 	
 	public boolean isFieldEmpty(int[] theField) {
                 if (grid[theField[0]][theField[1]] == BLANK) return true;

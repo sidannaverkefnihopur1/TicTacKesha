@@ -3,6 +3,7 @@ package is.ru.tictactoe;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 public class BoardTest {
@@ -16,7 +17,7 @@ public class BoardTest {
           for (int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
 		
-              	assertTrue("Board tile["+i+"]["+j+"] a ad vera jafnt og BLANK", (testArr[i][j] == br.BLANK));
+              	assertTrue("Board tile["+i+"]["+j+"] a ad vera jafnt og BLANK", (testArr[i][j] == b.BLANK));
             }
           }
       }
@@ -41,7 +42,31 @@ public class BoardTest {
             statement[1] = 0;
 
             assertFalse("testsFieldEmptyFalse atti ad vera false", b.isFieldEmpty(statement));
-        }
+      }
+
+      @Test
+      public void testputOnFieldOccupied() {
+	    testArr[0][0] = br.CIRCLE;
+	    Board b = new Board(testArr);
+	    int[] statement = new int[2];
+            statement[0] = 0;
+            statement[1] = 0;
+     	    b.putOnField(statement, 'X');
+	    testArr = b.getBoard();
+	    assertFalse( "testputOnField atti ad vera occupied " , testArr[0][0]  == 'X'); 
+      }     
+
+      @Test
+      public void testputOnFieldNotOccupied() {
+      	    Board b = new Board();
+            int[] statement = new int[2];
+            statement[0] = 0;
+            statement[1] = 0;
+	    b.putOnField(statement, 'X');
+	    testArr = b.getBoard();
+            assertTrue( "testputOnField atti ekki ad vera occupied " , testArr[0][0] ==  'X');
+
+      }
 
       @Test
       public void isBoardFullTest1() {

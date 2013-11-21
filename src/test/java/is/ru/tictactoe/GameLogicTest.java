@@ -10,12 +10,12 @@ public class GameLogicTest {
 	public static GameLogic gl = new GameLogic();
 	
 	@Test
-	public void testLegalStatement() {
+	public void testLegalStatement1() {
 		
 		assertTrue("A af vera loglegt", gl.legalStatement("a1"));
 	}
 	@Test
-	public void testLegalStatement(){
+	public void testLegalStatement2(){
 
 		assertFalse("A ad vera ologlegt", gl.legalStatement("d4"));
 	}
