@@ -24,5 +24,45 @@ public class GameLogic {
 		statement[1] = (int)(s.charAt(1) - '1');
 		return statement;
 	}
+
+	public static void main(String[] args) throws IOException {
+                BufferedReader br = new BufferedReader( new InputStreamReader(System.in) );
+                boolean isGameOver = false;
+                char turn = CROSS;
+                String input;
+                Board gameBoard = new Board();
+                System.out.println("Welcome to TicTacToe version Hopur EITT");
+                while (!isGameOver) {
+                        gameBoard.printBoard();
+                        input = br.readLine();
+                        if (legalStatement(input)) {
+                                int[] placeOnBoard = statementToInt(input);
+                                if (gameBoard.isFieldEmpty(placeOnBoard)) {
+                                        gameBoard.putOnField(placeOnBoard, turn);
+                                        if (gameBoard.isWinner(turn)) {
+                                                System.out.println("We have a winner..." + turn + " is the winner!");
+                                                gameBoard.printBoard();
+                                                isGameOver = true;
+                                        }
+                                        else if (gameBoard.isBoardFull()) {
+                                                System.out.println("You have tie bitches...");
+                                                isGameOver = true;
+                                        }
+                                        else {
+
+                                                if(turn == CROSS) turn = CIRCLE;
+                                                else turn = CROSS;
+                                        }
+                                }
+                                else {
+                                        System.out.println("This field is not empty!");
+                                }
+                        }
+                        else  {
+                                System.out.println("This input is bullsshit!");
+                        }
+                }
+        }
+}
 		
 }
