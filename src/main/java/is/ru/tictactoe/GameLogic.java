@@ -1,5 +1,9 @@
 package is.ru.tictactoe;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
 public class GameLogic {
 
 	final static char CIRCLE = 'O';
@@ -65,4 +69,3 @@ public class GameLogic {
         }
 }
 		
-}
