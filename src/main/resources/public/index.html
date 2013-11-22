@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tickidy, Tackidy, Toe !</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style/stillinn.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+	</script>
+	<script>
+	var turn = 'X';
+	var isGameOver = new Boolean();
+	$(document).ready(function() {
+		$(".blank").click(function() {
+			if (isGameOver != true) {
+				$(this).removeClass("blank");
+				$(this).addClass(turn);
+				$.ajax({
+					type: "POST",
+					url: "/move",
+					data: 'theMove=' + this.id + '&thePlayer=' + turn 
+				}).done(function(state) {
+					if (state == "Winner") {
+						alert("We have a winner!" + turn);
+						isGameOver = true;
+					}
+					else {
+						if (turn == 'X') turn = 'O';
+						else turn = 'X';
+					}
+				}).fail(function() {
+					alert("Thetta tokst ekki...");
+				});
+			}
+			else {
+				alert("The game is over!");
+			}
+			});
+		});
+	</script>
+</head>
+
+<body>
+<div id="Gameboard">
+	<h1>Halló Tic-Tac-Toe ! Velkominn í húsið</h1>
+	<table>
+		<tr>
+			<td class="blank" id="a1"></td>
+			<td class="blank" id="a2"></td>
+			<td class="blank" id="a3"></td>
+		</tr>
+		<tr>
+			<td class="blank" id="b1"></td>
+			<td class="blank" id="b2"></td>
+			<td class="blank" id="b3"></td>
+		</tr>
+		<tr>
+			<td class="blank" id="c1"></td>
+			<td class="blank" id="c2"></td>
+			<td class="blank" id="c3"></td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>
+
