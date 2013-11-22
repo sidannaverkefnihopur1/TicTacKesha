@@ -1,0 +1,20 @@
+td.O {
+	height: 48px;
+	width: 48px;
+	border: 2px solid black;
+	background: url('../images/circlecross.png') 0 0;
+}
+
+td.X {
+	height: 48px;
+	width: 48px;
+	border: 2px solid black;
+	background: url('../images/circlecross.png') -52px 0;
+}
+
+td.blank {
+	height: 48px;
+	width: 48px;
+	border: 2px solid black;
+	background: url('../images/circlecross.png') -100px 0;
+}
