@@ -38,7 +38,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>is.ru.TicTacToe.TicAppToe</mainClass>
+							<mainClass>is.ru.tictactoe.TicAppToe</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
