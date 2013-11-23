@@ -4,7 +4,7 @@ jdk: openjdk7
 deploy:
   provider: heroku
   api_key: 
-     secure: 86aa98eb-3b93-405b-b217-6fa23d15028f  
-  app: tttoe
+     secure:  
+  app: 
   on: 
      repo: sidannaverkefnihopur1/TicTacKesha
