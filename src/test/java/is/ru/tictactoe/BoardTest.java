@@ -12,7 +12,7 @@ public class BoardTest {
 
       @Test
       public void testcreateEmptyBoard() {
-	  Board b = new Board();
+	  Board b = new Board()
 	  testArr = b.getBoard();
           for (int i = 0; i < 3; i++) {
             for(int j = 0; j < 3; j++) {
