@@ -1,0 +1,49 @@
+Fallow these instructions to get all that is necessary to start working on the project.
+
+The machine should have linux
+
+Create an account on www.github.com
+
+Open shell in linux
+
+Generate SSH-Key with the command:
+
+"ssh-keygen -t rsa -C "<your email that you used on github>"  
+
+Use the command
+
+"cd ~/.ssh" and then "cat id_rsa.pub" and copy the text.
+
+Go to github.com on your account and go to AccountSettings(TopRightCorner)->SSH Keys->add SSH key
+Make your own Title and paste the text you copied to the Key-box
+
+Install git with the command:
+
+"sudo apt-get install git"
+
+Install Maven with the command:
+ 
+"sudo apt-get install maven"
+
+Install java 1.7 with the command: 
+
+"sudo apt-get install java jdk 1.7.0_25"
+
+Create a folder that will be your working directory and open(in shell), add git to folder with the command: 
+
+"git init"
+
+To get files from github use the command: "git clone git@github.com:sidannaverkefnihopur1/TicTacKesha.git"
+
+Talk to project manager to add you to the organazation in github.
+
+++++++++++
+
+Other Usefull things
+
+Git commands http://jan-krueger.net/wordpress/wp-content/uploads/2007/09/git-cheat-sheet.pdf
+
+Sublime text 2 is a good program to write code
+
+
+
