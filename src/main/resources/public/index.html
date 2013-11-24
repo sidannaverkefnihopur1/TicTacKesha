@@ -19,7 +19,7 @@
 					type: "POST",
 					url: "/move",
 					data: 'theMove=' + this.id + '&thePlayer=' + turn 
-				.done(function(state) {
+				)};.done(function(state) {
 					if( turn === 'X' )
 					{
 						$("#"+id+":empty").append('<p class="marker">X</p>');
@@ -48,7 +48,7 @@
 			else {
 				alert("The game is over!");
 			}
-			});
+		
 		});
 		$(':button').on('click', function(){
                 $.get('/restart');
