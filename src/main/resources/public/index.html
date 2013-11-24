@@ -22,11 +22,11 @@
 				)};.done(function(state) {
 					if( turn === 'X' )
 					{
-						$("#"+id+":empty").append('<p class="marker">X</p>');
+						$("#"+pos+":empty").append('<p class="marker">X</p>');
 					}
 					else if( turn === 'O' )
 					{
-						$("#"+id+":empty").append('<p class="marker">O</p>');	
+						$("#"+pos+":empty").append('<p class="marker">O</p>');	
 					}
 	                                if (state === "Winner") {
                                                 alert(turn + "is the winner!");
