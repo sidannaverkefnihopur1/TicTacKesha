@@ -31,11 +31,11 @@ public class FirefoxtictactoeIT {
   }  
 
 
-  @Test
-  public void titleShouldBeHelloWorld() throws Exception {
-    driver.get(baseUrl);
-    assertEquals("TicTacToe", driver.getTitle());
-  }
+//  @Test
+//  public void titleShouldBeTicTacToe() throws Exception {
+//    driver.get(baseUrl);
+//    assertEquals("TicTacToe", driver.getTitle());
+//  }
 
   @After
   public void tearDown() throws Exception {
