@@ -23,6 +23,20 @@
 					if (state == "Winner") {
 						alert("We have a winner!" + turn);
 						isGameOver = true;
+						var messsage("Play another game?");
+						if (r == true) {
+							$.ajax({
+								type: "POST",
+								url: "/restart"
+							}).done(fucntion() {
+								
+							}).fail(function() {
+								message("THAD ER ERROR");	
+							});
+						}
+						else {
+							document.getElementByID("message").InnerHTML("Thanks for not playing...");
+						}
 					}
 					else {
 						if (turn == 'X') turn = 'O';
@@ -36,6 +50,7 @@
 				alert("The game is over!");
 			}
 			});
+			
 		});
 	</script>
 </head>
@@ -61,6 +76,7 @@
 		</tr>
 	</table>
 </div>
+<p id="message"></p>
 </body>
 </html>
 
