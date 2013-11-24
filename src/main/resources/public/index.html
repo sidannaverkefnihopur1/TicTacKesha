@@ -20,10 +20,20 @@
 					url: "/move",
 					data: 'theMove=' + this.id + '&thePlayer=' + turn 
 				}).done(function(state) {
-					if (state === "Winner") {
-						alert("We have a winner!" + turn);
-						isGameOver = true;
+					if( turn === 'X' )
+					{
+						$("#"+pos+":empty").append('<p class="marker">X</p>');
 					}
+					else if( turn === 'O' )
+					{
+						$("#"+pos+":empty").append('<p class="marker">O</p>');	
+					}
+	                                if (state === "Winner") {
+                                                alert(turn + "is the winner!");
+                                                isGameOver = true;
+                                        }
+
+					
 					else {
 						if (turn === 'X') turn = 'O';
 						else turn = 'X';
@@ -41,6 +51,8 @@
 	<script type = "text/javascritp">
 		$(':button').on('click', function(){
       		$.get('/restart');
+		$('.marker').remove();
+		
     	});
 		
 	</script>
