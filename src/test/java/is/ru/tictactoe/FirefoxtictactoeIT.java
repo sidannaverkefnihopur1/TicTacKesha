@@ -26,7 +26,7 @@ public class FirefoxtictactoeIT {
   @Test
   public void titleShouldBeHelloWorld() throws Exception {
     driver.get(baseUrl);
-    assertEquals("Hello world", driver.getTitle());
+    assertEquals("Halló Tic-Tac-Toe ! Velkominn í húsið", driver.getTitle());
   }
 
   @After
