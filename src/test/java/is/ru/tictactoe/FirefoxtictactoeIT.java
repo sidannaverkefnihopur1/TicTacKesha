@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 import static org.apache.commons.lang3.StringUtils.join;
 import java.util.concurrent.TimeUnit;
 import com.thoughtworks.selenium.Selenium;
+import com.thoughtworks.selenium.DefaultSelenium;
 
 public class FirefoxtictactoeIT {
   private WebDriver driver;
@@ -28,8 +29,11 @@ public class FirefoxtictactoeIT {
     WebDriver driver = new FirefoxDriver();
     String baseUrl = "http://tictackesha.herokuapp.com/";
     selenium = new WebDriverBackedSelenium(driver, baseUrl);
-  }  
-
+  }
+  
+  protected DefaultSelenium createSeleniumClient(String baseUrl) throws Exception {
+	return new DefaultSelenium ("localhost", 4444, "*firefox", baseUrl);  
+  }
 
 //  @Test
 //  public void titleShouldBeTicTacToe() throws Exception {
