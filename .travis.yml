@@ -1,5 +1,11 @@
 language: java
 jdk: openjdk7
+
+after_script:
+  - "export STAGING_SERVER=http://tictackesha.herokuapp.com"
+  - "export DISPLAY=:99.9"
+  - "sh bin/selenium_test_xvfb"
+
 deploy:
   provider: heroku
   api_key:
