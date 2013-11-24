@@ -33,7 +33,7 @@ public class FirefoxtictactoeIT {
   public void tearDown() throws Exception {
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
-    if (!"".equals(verificationErrorString)) {
+    if (!"TicTacToe".equals(verificationErrorString)) {
       fail(verificationErrorString);
     }
   }
