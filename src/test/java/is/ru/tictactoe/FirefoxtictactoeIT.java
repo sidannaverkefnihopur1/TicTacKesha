@@ -9,19 +9,27 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverBackedSelenium;
+import java.util.regex.Pattern;
+import static org.apache.commons.lang3.StringUtils.join;
+import java.util.concurrent.TimeUnit;
+import com.thoughtworks.selenium.Selenium;
 
 public class FirefoxtictactoeIT {
   private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
+  private Selenium selenium;
 
   @Before
   public void setUp() throws Exception {
-    driver = new FirefoxDriver();
-    baseUrl = System.getenv("STAGING_SERVER");
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-  }
+    WebDriver driver = new FirefoxDriver();
+    String baseUrl = "http://tictackesha.herokuapp.com/";
+    selenium = new WebDriverBackedSelenium(driver, baseUrl);
+  }  
+
 
   @Test
   public void titleShouldBeHelloWorld() throws Exception {
