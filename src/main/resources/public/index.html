@@ -7,55 +7,61 @@
 	<link rel="stylesheet" href="style/stillinn.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 	</script>
-	<script>
-	var turn = 'X';
-	var isGameOver = new Boolean();
-	$(document).ready(function() {
-		$(".blank").click(function() {
-			if (isGameOver != true) {
-				$(this).removeClass("blank");
-				$(this).addClass(turn);
-				$.ajax({
-					type: "POST",
-					url: "/move",
-					data: 'theMove=' + this.id + '&thePlayer=' + turn 
-				)};.done(function(state) {
-					if( turn === 'X' )
-					{
-						$("#"+pos+":empty").append('<p class="marker">X</p>');
-					}
-					else if( turn === 'O' )
-					{
-						$("#"+pos+":empty").append('<p class="marker">O</p>');	
-					}
-	                                if (state === "Winner") {
-                                                alert(turn + "is the winner!");
-                                                isGameOver = true;
-                                        }
-					else if( state === "draw" )
-					{
-						alert(turn + "we have a draw!");
-						isGameOver = true;
-					}					
-					else {
-						if (turn === 'X') turn = 'O';
-						else turn = 'X';
-					}
-				}).fail(function() {
-					alert("Thetta tokst ekki...");
-				});
-			}
-			else {
-				alert("The game is over!");
-			}
-		
-		});
-		$(':button').on('click', function(){
-                $.get('/restart');
-                $('.marker').remove();
 
-		});
-	});
+ 	<script type="text/javascript"> 
+     	$(document).ready(function() {
+    
+   	   $('.unmarked').on('click' ,  function(e) {
+        	e.preventDefault();
+        	var pos = $(this).attr('id');
+        	$(this).removeClass();
+        	$.ajax({
+          	type: "post",
+          	url: "/game",
+          	data: 'pos=' + pos,
+          	success: function(data) {
+            	player = data.charAt(0);
+            	status = data.charAt(1);
+
+         	   if(player === "1") {
+              		$("#"+pos+":empty").append('<p class="marker">X</p>');
+
+            	}
+            else if(player === "2") {
+              $("#"+pos+":empty").append('<p class="marker">O</p>');
+            }
+
+            if(status === "1") {
+              $("#state-box").text('Player 1 wins');
+              $("td:empty").append('<img src="circlecross.png" alt="Smiley face" height="100px" width="100px">');
+            }
+            else if(status === "2") {
+              $("#state-box").text('Player 2 wins');
+              $("td:empty").append('<img src="circlecross.png" alt="Smiley face" height="100px" width="100px">');
+            }
+            else if(status === "3") {
+              $("#state-box").text('Nobody wins, fools');
+              $("td:empty").append('<img src="circlecross.png" alt="Smiley face" height="100px" width="100px">');
+            }
+            else {
+              $("#state-box").text('Playing...');
+            }
+          },
+          error: function() {
+            $('#state-box').text('Villa kom upp');
+            $(this).attr('class', 'unmarked');
+          }
+        
+      });
+    });
+    $(':button').on('click', function(e){
+      e.preventDefault();
+      $.get('/restart');
+      $('.marker').remove();
+      $('img').remove();
+      $("#state-box").text(" ");
+    });
+  });
 	</script>
 		
 		
