@@ -19,21 +19,24 @@
 					type: "POST",
 					url: "/move",
 					data: 'theMove=' + this.id + '&thePlayer=' + turn 
-				}).done(function(state) {
+				.done(function(state) {
 					if( turn === 'X' )
 					{
-						$("#"+pos+":empty").append('<p class="marker">X</p>');
+						$("#"+id+":empty").append('<p class="marker">X</p>');
 					}
 					else if( turn === 'O' )
 					{
-						$("#"+pos+":empty").append('<p class="marker">O</p>');	
+						$("#"+id+":empty").append('<p class="marker">O</p>');	
 					}
 	                                if (state === "Winner") {
                                                 alert(turn + "is the winner!");
                                                 isGameOver = true;
                                         }
-
-					
+					else if( state === "draw" )
+					{
+						alert(turn + "we have a draw!");
+						isGameOver = true;
+					}					
 					else {
 						if (turn === 'X') turn = 'O';
 						else turn = 'X';
@@ -47,15 +50,15 @@
 			}
 			});
 		});
-	</script>
-	<script type = "text/javascritp">
 		$(':button').on('click', function(){
-      		$.get('/restart');
-		$('.marker').remove();
-		
-    	});
-		
+                $.get('/restart');
+                $('.marker').remove();
+
+		});
+	});
 	</script>
+		
+		
 </head>
 
 <body>
