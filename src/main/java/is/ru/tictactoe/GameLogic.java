@@ -55,7 +55,7 @@ public class GameLogic {
                        	                        isGameOver = true;
                                	        }
                                        	else {
-	                                                if(turn == CROSS) turn = CIRCLE;
+                                                if(turn == CROSS) turn = CIRCLE;
        	                                        else turn = CROSS;
                	                        }
                        	        }
@@ -67,6 +67,7 @@ public class GameLogic {
                                	System.out.println("Please selsect anouther input!");
                         }
        	        }
+
 	}
 }
 		
