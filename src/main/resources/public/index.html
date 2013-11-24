@@ -19,13 +19,26 @@
 					type: "POST",
 					url: "/move",
 					data: 'theMove=' + this.id + '&thePlayer=' + turn 
-				}).done(function(state) {
-					if (state == "Winner") {
-						alert("We have a winner!" + turn);
-						isGameOver = true;
+				.done(function(state) {
+					if( turn === 'X' )
+					{
+						$("#"+id+":empty").append('<p class="marker">X</p>');
 					}
+					else if( turn === 'O' )
+					{
+						$("#"+id+":empty").append('<p class="marker">O</p>');	
+					}
+	                                if (state === "Winner") {
+                                                alert(turn + "is the winner!");
+                                                isGameOver = true;
+                                        }
+					else if( state === "draw" )
+					{
+						alert(turn + "we have a draw!");
+						isGameOver = true;
+					}					
 					else {
-						if (turn == 'X') turn = 'O';
+						if (turn === 'X') turn = 'O';
 						else turn = 'X';
 					}
 				}).fail(function() {
@@ -37,7 +50,15 @@
 			}
 			});
 		});
+		$(':button').on('click', function(){
+                $.get('/restart');
+                $('.marker').remove();
+
+		});
+	});
 	</script>
+		
+		
 </head>
 
 <body>
@@ -60,6 +81,10 @@
 			<td class="blank" id="c3"></td>
 		</tr>
 	</table>
+	<button type = "button" id = "restart"> 
+		Restart 
+	</button>
+	 
 </div>
 </body>
 </html>

@@ -27,6 +27,15 @@ public class TicAppToe {
           if (gb.isWinner(player.charAt(0))) return "Winner";
           else return "No winner...";
        }
+    });
+
+    get( new Route("/restart") {
+	@Override
+	public Object handle(Request request, Response response) {
+		gb = new Board();
+		return null;
+	}
+
       });
     }
   }
